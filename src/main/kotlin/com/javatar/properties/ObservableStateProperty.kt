@@ -1,10 +1,8 @@
-package com.daemonheim.game.api.properties
+package com.javatar.properties
 
-import kotlinx.coroutines.CoroutineScope
+interface ObservableStateProperty<T> : StateProperty<T> {
 
-interface ObservableStateProperty<T> : CoroutineScope {
-
-    fun addChangeListener(listener: (T) -> Unit)
-    fun removeChangeListener(listener: (T) -> Unit)
+    fun addListener(listener: (ObservableStateProperty<T>, T) -> Unit)
+    fun removeListener(listener: (ObservableStateProperty<T>, T) -> Unit)
 
 }
